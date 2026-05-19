@@ -48,26 +48,45 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding: 20px;
+  padding: 15px 4vw;
   color: white;
   align-items: center;
-  position:fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 9999;
-  
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  box-sizing: border-box;
+}
+
+/* Center SVG container perfectly */
+#nav > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #nav .svg {
-  width: 20vw;
-  height: 4vw;
+  width: clamp(35px, 5vw, 60px) !important;
+  height: clamp(35px, 5vw, 60px) !important;
   color: white;
-
+  transform-origin: center;
+  flex-shrink: 0;
 }
 
 
 #nav .myname {
-  width: 15vw;
-  height: 3vw;
-  font-family: "Moranga";
+  margin: 0;
+  width: auto;
+  height: auto;
+  font-family: "Moranga", sans-serif;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  white-space: nowrap;
 }
 
 #nav .resume {
@@ -566,30 +585,29 @@ font-size: 3vw;
 
 @media (max-width:768px) {
   #nav {
-    background-color: rgba(0, 0, 0, 0.8);
+    padding: 12px 4vw;
+    background: rgba(0, 0, 0, 0.85);
     flex-wrap: nowrap !important;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 4vw;
-    gap: 8px;
   }
+  
+  /* On very small mobile screens, ensure the absolute center doesn't overlap left/right text */
+  @media (max-width: 450px) {
+    #nav > div:nth-child(2) {
+      position: static;
+      transform: none;
+    }
+    #nav {
+      gap: 10px;
+    }
+  }
+
   .myname {
-    width: auto !important;
-    height: auto !important;
-    font-size: clamp(0.9rem, 3.5vw, 1.2rem) !important;
-    white-space: nowrap;
+    font-size: clamp(0.9rem, 4vw, 1.2rem) !important;
   }
-  .svg {
-    height: clamp(30px, 8vw, 40px) !important;
-    width: clamp(30px, 8vw, 40px) !important;
-    flex-shrink: 0;
-  }
+  
   .resume {
-    font-size: clamp(0.7rem, 2.5vw, 0.9rem) !important;
-    padding: 8px 12px !important;
-    height: auto !important;
-    width: auto !important;
-    white-space: nowrap;
+    font-size: clamp(0.7rem, 3vw, 0.9rem) !important;
+    padding: 8px 14px !important;
   }
 
   #page1_main {

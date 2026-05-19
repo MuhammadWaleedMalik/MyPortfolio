@@ -21,20 +21,6 @@ gsap.ticker.lagSmoothing(0);
 
 const resumeElement = document.querySelector('.resume');
 
-function updateResumeText() {
-  if (window.matchMedia('(max-width: 768px)').matches) {
-
-    resumeElement.innerHTML = 'resume';
-  } else {
-
-    resumeElement.innerHTML = 'Get my resume online';
-  }
-}
-
-
-updateResumeText();
-
-window.addEventListener('resize', updateResumeText);
 
 
 // Using Gsap Animation

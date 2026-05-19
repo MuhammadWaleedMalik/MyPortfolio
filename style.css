@@ -567,28 +567,40 @@ font-size: 3vw;
 @media (max-width:768px) {
   #nav {
     background-color: rgba(0, 0, 0, 0.8);
-    flex-wrap: wrap;
-    padding: 15px 5vw;
-    gap: 10px;
+    flex-wrap: nowrap !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 4vw;
+    gap: 8px;
   }
   .myname {
     width: auto !important;
     height: auto !important;
-    font-size: 1.5rem !important;
+    font-size: clamp(0.9rem, 3.5vw, 1.2rem) !important;
+    white-space: nowrap;
   }
   .svg {
-    height: 40px !important;
-    width: 40px !important;
+    height: clamp(30px, 8vw, 40px) !important;
+    width: clamp(30px, 8vw, 40px) !important;
+    flex-shrink: 0;
   }
   .resume {
-    font-size: 0.8rem !important;
-    padding: 8px 16px !important;
+    font-size: clamp(0.7rem, 2.5vw, 0.9rem) !important;
+    padding: 8px 12px !important;
     height: auto !important;
     width: auto !important;
+    white-space: nowrap;
   }
 
   #page1_main {
-    padding-top: 35vw; /* Prevent overlap with the fixed navigation */
+    padding-top: 25vw; /* Perfectly clear the single-line navbar */
+  }
+
+  .img {
+    width: 90vw !important;
+    height: 90vw !important;
+    margin-top: 5vw;
+    margin-bottom: -15vw; /* Erase ghost gaps from scaling while allowing GSAP to animate */
   }
 
   /* Remove arbitrary massive gaps between consecutive sections */
@@ -626,12 +638,32 @@ font-size: 3vw;
     margin: auto 0 0 0;
   }
   
+  .web_proj {
+    width: 95vw !important;
+    height: auto !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    gap: 5vw;
+    padding: 0 !important;
+    background-color: transparent;
+    border: none;
+  }
+
+  .pic {
+    width: 100% !important;
+    height: 65vw !important;
+    border-radius: 15px;
+  }
+
   .projects {
     gap: 10vw;
   }
 
   .apple, .tala, .lazerav {
-    width: 92vw;
-    height: 50vw;
+    width: 95vw;
+    height: 65vw;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
   }
 }
